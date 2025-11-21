@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomoo – Profesjonalna weryfikacja, optymalizacja i bezpieczeństwo fotowoltaiki</title>
+    <meta name="description" content="Bomoo Sp. z o.o. oferuje profesjonalną weryfikację, optymalizację i serwis instalacji fotowoltaicznych. Darmowy przegląd, 12-miesięczna gwarancja, inteligentne systemy zarządzania energią.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Globalne ustawienia i resety - DARK MODE */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            background-color: #1a1a2e; /* Ciemne tło strony */
+            color: #e5e5f5; /* Jasny tekst */
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Sekcje */
+        section {
+            padding: 80px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        section:nth-of-type(even) {
+            background-color: #2c2c54; /* Ciemniejszy odcień dla co drugiej sekcji */
+        }
+        
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            color: #90d3ff; /* Jasnoniebieski nagłówek */
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #64ffda; /* Akcentujący turkus */
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            color: #64ffda; /* Akcentujący turkus */
+            margin-bottom: 25px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #c5c5e0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 12px;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.05em;
+            color: #e5e5f5;
+        }
+        ul li::before {
+            content: '⚡'; /* Ikona zamiast punktora */
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2em;
+        }
+
+        /* --- Header / Hero Section --- */
+        .hero {
+            /* ZDJĘCIE 1: Tło Hero - Ciemne panele, nowoczesny klimat */
+            background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.85)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 150px 20px;
+            position: relative;
+        }
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #64ffda;
+            line-height: 1.1;
+        }
+        .hero .tagline {
+            font-size: 1.8em;
+            font-weight: 400;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #90d3ff;
+        }
+        .hero .btn {
+            display: inline-block;
+            background-color: #64ffda; /* Kolor przycisku akcji - turkus */
+            color: #1a1a2e;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+        .hero .btn:hover {
+            background-color: #55e0c5;
+        }
+
+        /* --- Nagłówek i Nawigacja --- */
+        .top-header {
+            background-color: #0f0f1b; /* Bardzo ciemny nagłówek */
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .top-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #64ffda; /* Logo w akcentującym kolorze */
+            text-decoration: none;
+            margin-right: 40px; 
+            white-space: nowrap;
+        }
+        .main-nav {
+            flex-grow: 1;
+            min-width: 0;
+            text-align: right;
+        }
+        .main-nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            /* Ustawienia dla jednej linii */
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            overflow-x: auto; /* Zabezpieczenie na bardzo małe ekrany */
+            padding-bottom: 5px;
+        }
+        .main-nav li {
+            display: inline-block;
+            margin-left: 25px;
+            flex-shrink: 0;
+        }
+        .main-nav li::before {
+            content: none;
+        }
+        .main-nav a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #e5e5f5;
+            font-weight: 600;
+            font-size: 1em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        .main-nav a:hover {
+            color: #64ffda;
+        }
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 3px;
+            background-color: #64ffda; /* Akcentujący kolor turkus */
+            transition: width 0.3s ease;
+        }
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Układ dla sekcji treści (grid/flexbox) --- */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .grid-layout.two-cols {
+            grid-template-columns: 1fr 1fr;
+        }
+        .grid-layout.three-cols {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .text-content {
+            padding-right: 20px;
+            text-size-adjust: 10px;
+        }
+        .image-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Cards dla wyróżnionych usług */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .card {
+            background-color: #0f0f1b; /* Tło karty */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            text-align: center;
+            border: 1px solid #2c2c54;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-color: #64ffda;
+        }
+        .card .icon {
+            font-size: 3em;
+            color: #90d3ff;
+            margin-bottom: 20px;
+        }
+        .card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4em;
+            color: #90d3ff;
+            margin-bottom: 15px;
+        }
+        .card p {
+            font-size: 0.95em;
+            color: #c5c5e0;
+            margin-bottom: 0;
+        }
+
+        /* Blockquote / Cytaty */
+        blockquote {
+            background-color: #2c2c54; /* Ciemniejszy niebieski dla cytatu */
+            border-left: 6px solid #64ffda;
+            padding: 30px;
+            margin: 40px auto;
+            font-size: 1.3em;
+            font-style: italic;
+            color: #90d3ff;
+            text-align: center;
+            border-radius: 8px;
+            max-width: 800px;
+        }
+        blockquote p {
+            margin-bottom: 0;
+            color: #90d3ff;
+        }
+        blockquote::before, blockquote::after {
+            color: #64ffda;
+        }
+        blockquote::before {
+            content: '“';
+            font-size: 4em;
+            display: block;
+            margin-top: -30px;
+            margin-bottom: -20px;
+            line-height: 1;
+        }
+        blockquote::after {
+            content: '”';
+            font-size: 4em;
+            display: block;
+            margin-top: -20px;
+            margin-bottom: -30px;
+            line-height: 1;
+            text-align: right;
+        }
+
+        /* Stopka */
+        footer {
+            background-color: #0f0f1b;
+            color: #e5e5f5;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9em;
+            margin-top: 50px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Styl kontaktu - LEWA STRONA */
+        #kontakt .contact-info {
+            max-width: 600px;
+            margin-right: auto; 
+            margin-left: 0; /* Wyrównanie do lewej krawędzi */
+            text-align: left;
+        }
+        #kontakt p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #e5e5f5;
+            padding-left: 30px;
+            position: relative;
+        }
+        #kontakt p strong {
+            color: #64ffda;
+            display: inline-block;
+            width: 150px; 
+            font-weight: 700;
+        }
+        /* Ikony dostosowane do kolejności: Nazwa firmy, NIP, Adres, Telefon, Email */
+        #kontakt p:nth-child(1)::before { content: '🏢'; }
+        #kontakt p:nth-child(2)::before { content: '🆔'; }
+        #kontakt p:nth-child(3)::before { content: '📍'; }
+        #kontakt p:nth-child(4)::before { content: '📞'; }
+        #kontakt p:nth-child(5)::before { content: '📧'; }
+
+
+        /* --- Media Queries (Responsywność) --- */
+        @media (max-width: 992px) {
+            .main-nav li {
+                margin-left: 15px;
+            }
+            .hero h1 {
+                font-size: 3em;
+            }
+            .hero .tagline {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 2em;
+            }
+            .grid-layout.two-cols {
+                grid-template-columns: 1fr; 
+            }
+            .text-content {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .logo {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+            .main-nav {
+                width: 100%;
+                text-align: center;
+            }
+            .main-nav ul {
+                justify-content: flex-start; /* Mobilnie wyrównanie do lewej */
+            }
+            .hero {
+                padding: 100px 20px;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero .tagline {
+                font-size: 1.2em;
+            }
+            h2 {
+                font-size: 1.8em;
+                margin-bottom: 40px;
+            }
+            #kontakt p strong {
+                width: auto;
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero .tagline {
+                font-size: 1em;
+            }
+            .hero .btn {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            .logo {
+                font-size: 1.5em;
+            }
+            ul li {
+                font-size: 0.95em;
+            }
+            blockquote {
+                font-size: 1.1em;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="container">
+            <a href="#" class="logo">Bomoo</a> 
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#o-firmie">O nas</a></li>
+                    <li><a href="#przeglad">Przegląd</a></li>
+                    <li><a href="#gwarancja">Gwarancja</a></li>
+                    <li><a href="#systemy">Systemy</a></li>
+                    <li><a href="#relokacja">Relokacja</a></li>
+                    <li><a href="#produkcja">Komponenty</a></li>
+                    <li><a href="#podejscie">Podejście</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>Zadbaj o swoją fotowoltaikę z Bomoo!</h1>
+            <p class="tagline">Profesjonalna weryfikacja, optymalizacja i bezpieczeństwo Twojej instalacji PV.</p>
+            <a href="#przeglad" class="btn">Umów darmowy przegląd!</a>
+        </div>
+    </div>
+
+    <main>
+        <section id="o-firmie">
+            <div class="container">
+                <h2>O Bomoo</h2>
+                <div class="grid-layout two-cols">
+                    <div class="text-content">
+                        <p>Bomoo, założona w 2024 roku, powstała z myślą o zapewnieniu właścicielom instalacji fotowoltaicznych maksymalnego bezpieczeństwa, pełnej sprawności oraz realnych oszczędności wynikających z prawidłowej pracy systemu.</p>
+                        <p>Jako firma specjalizująca się w weryfikacji istniejących instalacji PV, łączymy doświadczenie techniczne, najwyższe standardy wykonawcze oraz indywidualne podejście do każdego klienta.</p>
+                        <h3>Nasza Misja</h3>
+                        <p>Naszą misją jest kompleksowa opieka nad instalacjami PV, które już działają, ale wymagają przeglądu, optymalizacji lub modernizacji — tak, aby ich właściciele mogli korzystać z pełnego potencjału energii słonecznej.</p>
+                    </div>
+                    <div class="image-content">
+                        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nowoczesne panele fotowoltaiczne w słońcu">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="przeglad">
+            <div class="container">
+                <h2>Darmowy przegląd techniczny Twojej instalacji PV</h2>
+                <div class="grid-layout two-cols">
+                    <div class="image-content">
+                        <img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Inżynier sprawdzający instalację fotowoltaiczną">
+                    </div>
+                    <div class="text-content">
+                        <h3>Co obejmuje audyt?</h3>
+                        <p>Oferujemy bezpłatny, szczegółowy przegląd istniejącej instalacji fotowoltaicznej, obejmujący kluczowe aspekty jej funkcjonowania:</p>
+                        <ul>
+                            <li>analizę poprawności montażu i zabezpieczeń,</li>
+                            <li>weryfikację doboru komponentów,</li>
+                            <li>sprawdzenie efektywności działania,</li>
+                            <li>ocenę ryzyka usterek i awarii,</li>
+                            <li>analizę opłacalności oraz utraconych uzysków.</li>
+                        </ul>
+                        <p>Po przeprowadzeniu audytu przedstawiamy konkretne rozwiązania techniczne, które zwiększą wydajność instalacji, jej bezpieczeństwo oraz żywotność.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gwarancja">
+            <div class="container">
+                <h2>12-miesięczna gwarancja po każdym przeglądzie</h2>
+                <p class="text-center">Jako jedyna firma na rynku oferujemy dodatkowe 12 miesięcy gwarancji na instalację PV po wykonanym przez nas przeglądzie — niezależnie od tego, kto ją pierwotnie montował.</p>
+                <blockquote>
+                    <p>To nasza odpowiedź na rosnące problemy związane z wadliwymi montażami oraz brakiem opieki serwisowej u wielu klientów, zapewniając spokój i bezpieczeństwo Twojej inwestycji.</p>
+                </blockquote>
+                <div class="image-content" style="margin-top: 40px;">
+                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Symbol bezpieczeństwa i gwarancji">
+                </div>
+            </div>
+        </section>
+
+        <section id="systemy">
+            <div class="container">
+                <h2>Inteligentne systemy zarządzania energią</h2>
+                <p class="text-center">Wprowadzamy nowoczesne rozwiązania, które pozwalają w pełni wykorzystać energię wyprodukowaną przez instalację, maksymalizując Twoje oszczędności.</p>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="icon">💡</div>
+                        <h4>Inteligentne sterowanie zużyciem</h4>
+                        <p>Optymalizuj zużycie energii w czasie rzeczywistym, dostosowując pracę urządzeń do produkcji Twojej instalacji PV.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">🔋</div>
+                        <h4>Zarządzanie magazynami energii</h4>
+                        <p>Efektywnie magazynuj nadwyżki energii i korzystaj z nich, gdy słońce nie świeci, zwiększając niezależność energetyczną.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">📈</div>
+                        <h4>Zwiększanie autokonsumpcji</h4>
+                        <p>Wykorzystuj więcej wyprodukowanej energii na własne potrzeby, minimalizując wysyłanie jej do sieci i obniżając rachunki.</p>
+                    </div>
+                </div>
+                <p class="text-center" style="margin-top: 40px; font-weight: 600; font-size: 1.1em;">Dzięki temu Twoja instalacja produkuje więcej realnych oszczędności, a nie tylko energii.</p>
+            </div>
+        </section>
+
+        <section id="relokacja">
+            <div class="container">
+                <h2>Relokacja instalacji PV – z dachu na grunt</h2>
+                <div class="grid-layout two-cols">
+                    <div class="text-content">
+                        <h3>Nowe życie dla Twojej instalacji</h3>
+                        <p>Specjalizujemy się w przenoszeniu istniejących instalacji z dachów na nowoczesne i estetyczne konstrukcje gruntowe. To idealne rozwiązanie, gdy chcesz zmienić lokalizację paneli lub poprawić ich wydajność.</p>
+                        <p><strong>Twoja instalacja zyskuje:</strong></p>
+                        <ul>
+                            <li>lepsze chłodzenie i większą wydajność,</li>
+                            <li>łatwiejszy dostęp serwisowy i konserwacyjny,</li>
+                            <li>dużo większe bezpieczeństwo użytkowania,</li>
+                            <li>a Ty — dodatkowe, estetyczne miejsca postojowe (np. wiaty, carporty).</li>
+                        </ul>
+                    </div>
+                    <div class="image-content">
+                        <img src="https://images.unsplash.com/photo-1566093097221-ac2335b09e70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nowoczesny carport fotowoltaiczny">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="produkcja">
+            <div class="container">
+                <h2>Produkcja certyfikowanych komponentów montażowych</h2>
+                <p class="text-center">Jako producent oferujemy bezpieczne, certyfikowane komponenty montażowe, zgodne z europejskimi normami. Nasze rozwiązania zapewniają trwałość i odporność instalacji na warunki atmosferyczne przez wiele lat.</p>
+                <div class="image-content" style="margin-top: 40px;">
+                    <img src="https://images.unsplash.com/photo-1535813547-99c456a41d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Metalowe komponenty montażowe">
+                </div>
+            </div>
+        </section>
+
+        <section id="podejscie">
+            <div class="container">
+                <h2>Bezprecedensowe podejście do klienta</h2>
+                <div class="grid-layout two-cols">
+                    <div class="image-content">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Zespół obsługi klienta przy komputerach">
+                    </div>
+                    <div class="text-content">
+                        <p>W Bomoo wierzymy, że każda instalacja fotowoltaiczna powinna działać nieprzerwanie, bezpiecznie i efektywnie. Dlatego jesteśmy tutaj, aby:</p>
+                        <ul>
+                            <li>rozwiązywać problemy i eliminować błędy montażowe,</li>
+                            <li>optymalizować pracę istniejących instalacji,</li>
+                            <li>chronić Twoją inwestycję i zapewniać jej długowieczność.</li>
+                        </ul>
+                        <blockquote>
+                            <p>Bomoo to firma stworzona, by naprawiać to, co inni pozostawili bez opieki — z nami Twoja fotowoltaika jest w najlepszych rękach.</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontakt">
+            <div class="container">
+                <h2>Skontaktuj się z nami</h2>
+                <div class="contact-info">
+                    <p><strong>Nazwa firmy:</strong> Bomoo Sp. z o.o.</p>
+                    <p><strong>NIP:</strong> 9930-068-69-76</p>
+                    <p><strong>Adres:</strong> ul. Urszulańska 3/2, 33-100 Tarnów</p>
+                    <p><strong>Telefon:</strong> +48 510 630 268</p>
+                    <p><strong>Email:</strong> office.bomoo@gmail.com</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Bomoo. Wszelkie prawa zastrzeżone.</p>
+            <p>Projekt i rozwój: Bomoo Tech Solutions</p>
+        </div>
+    </footer>
+
+</body>
+</html>
